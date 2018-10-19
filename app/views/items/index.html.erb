@@ -1,9 +1,10 @@
-<h1>商品一覧</h1>
+<h1>購入商品一覧</h1>
 <% if user_signed_in? %>
   <% @items.each do |item| %>
     <p>
-      <%= item.name %>:<%= item.price %>
-        <!-- 商品ごとに購入したユーザーのIDを表示させる -->
+      <%= item.name %>：<%= item.price %>
+
+      <!-- 商品ごとに購入したユーザーのIDを表示させる -->
       <%= item.user.id %>
       <!-- item,userモデルの関連づけが必要 -->
     </p>

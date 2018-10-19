@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, expect: :index
+  before_action :move_to_index, except: :index
 
   def index
     @items = Item.all
@@ -18,9 +18,8 @@ class ItemsController < ApplicationController
     # 今のままだと直接URLに/items/newなど入力すると、
     # ログインなしでも登録ページにアクセスできてしまう。
   def move_to_index
-    redirect_to items_path unless user_signed_in?
+    redirect_to root_path unless user_signed_in?
   end
-
 
 
   private

@@ -13,10 +13,10 @@
     <%  if user_signed_in? %>
       <%= link_to "ログアウト", destroy_user_session_path,
                                 method: :delete %><!-- URL:/users/sign_out -->
-      <%= link_to "トップへ", item_path %>
+      <%= link_to "トップへ", root_path %>
       <%= link_to "投稿画面へ", new_item_path %>
 
-      <%= link_to "マイページへ", userpath(current_user.id) %>
+      <%= link_to "マイページへ", user_path(current_user.id) %>
     <% else %>
       <%= link_to "ログイン", new_user_session_path,
                               class: 'post' %><!-- URL:/users/sign_in -->
