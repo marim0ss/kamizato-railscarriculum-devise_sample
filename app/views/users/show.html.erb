@@ -1,4 +1,8 @@
+<h1>マイページ</h1>
+<h2>あなたのID：<%= @user.id %></h2>
+
+<p>購入した商品</p>
 <!--  @items -> @user.itemsに変更する -->
-<%= @user.items.each do |item| %>
-  <p><%= item.name %>:<%= item.price %></p>
+<% @user.items.each do |item| %>
+  <p><%= item.name %>:<%= item.price %>円</p>
 <% end %>

@@ -14,13 +14,12 @@
       <%= link_to "ログアウト", destroy_user_session_path,
                                 method: :delete %><!-- URL:/users/sign_out -->
       <%= link_to "トップへ", root_path %>
-      <%= link_to "投稿画面へ", new_item_path %>
+      <%= link_to "購入画面へ", new_item_path %>
 
       <%= link_to "マイページへ", user_path(current_user.id) %>
     <% else %>
-      <%= link_to "ログイン", new_user_session_path,
-                              class: 'post' %><!-- URL:/users/sign_in -->
-      <%= link_to "新規登録", new_user_registration_path, class: 'post' %><!-- URL:/users/sign_up -->
+      <%= link_to "ログイン", new_user_session_path %><!-- URL:/users/sign_in -->
+      <%= link_to "新規登録", new_user_registration_path %><!-- URL:/users/sign_up -->
     <% end %>
     <%= yield %>
   </body>
