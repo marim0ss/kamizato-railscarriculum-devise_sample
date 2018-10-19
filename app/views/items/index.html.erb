@@ -4,9 +4,14 @@
     <p>
       <%= item.name %>：<%= item.price %>
 
-      <!-- 商品ごとに購入したユーザーのIDを表示させる -->
-      購入者ID：<%= item.user.id %>
-      <!-- item,userモデルの関連づけが必要 -->
+        <!-- 購入者はnicknameが設定されていないならIDを表示させる -->
+        <% if item.user.nickname.present? %>
+          購入者:<%= item.user.nickname %>
+        <% else %>
+          <!-- 商品ごとに購入したユーザーのIDを表示させる -->
+          購入者ID：<%= item.user.id %>
+          <!-- item,userモデルの関連づけが必要 -->
+        <% end %>
     </p>
   <% end %>
 <% else %>
