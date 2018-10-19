@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
     Item.create(name: items_params[:name], price: items_params[:price], user_id: current_user.id)
   end
 
-  # ログインしていない時はトップへリダイレクトさせる(before_actionを使って)
-    # 今のままだと直接URLに/items/newなど入力すると、
+  # ログインしていない時はトップへリダイレクトさせる(before_actionを使って)
+    # 今のままだと直接URLに/items/newなど入力すると、
     # ログインなしでも登録ページにアクセスできてしまう。
   def move_to_index
     redirect_to root_path unless user_signed_in?

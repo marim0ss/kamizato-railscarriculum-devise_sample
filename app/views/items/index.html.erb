@@ -3,15 +3,8 @@
   <% @items.each do |item| %>
     <p>
       <%= item.name %>：<%= item.price %>
-
-        <!-- 購入者はnicknameが設定されていないならIDを表示させる -->
-        <% if item.user.nickname.present? %>
-          購入者:<%= item.user.nickname %>
-        <% else %>
-          <!-- 商品ごとに購入したユーザーのIDを表示させる -->
-          購入者ID：<%= item.user.id %>
-          <!-- item,userモデルの関連づけが必要 -->
-        <% end %>
+      <!-- nicknameがあれば表示、なければIDを表示。１行で書ける -->
+      :<%= item.user.nickname.present? ? "購入者#{item.user.nickname}" : "購入者ID：#{item.user.id}" %>
     </p>
   <% end %>
 <% else %>
