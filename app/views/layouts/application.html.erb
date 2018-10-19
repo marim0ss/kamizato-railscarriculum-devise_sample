@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeviseSample</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- user_signed_in? userモデルをdeviseで使う設定すると使えるメソッド -->
+    <%  if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path,
+                                method: :delete %><!-- URL:/users/sign_out -->
+      <%= link_to "トップへ", item_path %>
+      <%= link_to "投稿画面へ", new_item_path %>
+
+      <%= link_to "マイページへ", userpath(current_user.id) %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path,
+                              class: 'post' %><!-- URL:/users/sign_in -->
+      <%= link_to "新規登録", new_user_registration_path, class: 'post' %><!-- URL:/users/sign_up -->
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

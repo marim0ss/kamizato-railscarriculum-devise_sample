@@ -1,0 +1,7 @@
+<!--  form_for @item,  url: new_item_path, html{ method: :post } do |f| とも書ける -->
+<%= form_for @item, method: :post do |f| %>
+  <h1>購入する商品の情報を入力</h1>
+  <p>商品名:<%= f.text_field :name %></p>
+  <p>値段:<%= f.text_field :price %></p>
+  <input type="submit" name="" value="送信">
+<% end %>
