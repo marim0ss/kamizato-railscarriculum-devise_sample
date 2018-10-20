@@ -11,7 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(name: items_params[:name], price: items_params[:price], user_id: current_user.id)
+    # Item.create(name: items_params[:name], price: items_params[:price], user_id: current_user.id)ともかける
+    Item.create(items_params)
   end
 
   # ログインしていない時はトップへリダイレクトさせる(before_actionを使って)

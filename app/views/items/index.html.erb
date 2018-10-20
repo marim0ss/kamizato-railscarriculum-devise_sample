@@ -1,10 +1,10 @@
-<h1>みんなの購入商品一覧</h1>
+<h1>みんなの購入商品一覧</h1>
 <% if user_signed_in? %>
   <% @items.each do |item| %>
     <p>
       <%= item.name %>：<%= item.price %>
       <!-- nicknameがあれば表示、なければIDを表示。１行で書ける -->
-      :<%= item.user.nickname.present? ? "購入者#{item.user.nickname}" : "購入者ID：#{item.user.id}" %>
+      :<%= item.user.nickname.present? ? "購入者#{item.user.nickname}" : "購入者ID：#{item.user.id}" %>
     </p>
   <% end %>
 <% else %>
